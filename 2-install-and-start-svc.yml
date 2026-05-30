@@ -1,0 +1,72 @@
+######   nginx installing and start ######
+
+- name: install and start svc      # name of playbook
+  host: local module               # where you want to perform
+
+  task: 
+  - name: installing nginx         # task name
+    yum:                           # module 
+      name: nginx                  # 
+      state: present               # Ensure the package should is installed
+
+  - name: start nginx
+    service:                        # module
+      name: nginx
+      state: started
+      enable: true                 
+
+
+---
+#### httpd installing and start ###########
+
+- name: install and start svc
+  host: localhost
+
+  task:
+  - name: installing httpd
+    yum:
+      name: httpd
+      state: present
+
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+      enable: true
+
+--- 
+### install docker and start ########
+
+- name: installing and start docker
+  host: localhost
+
+  task:
+  - name: install docker
+    yum:  
+      name: Docker
+      state: present
+
+  - name: start docker
+    service: 
+      name: Docker
+      state: started
+      enable: true
+
+---
+
+## install and start git #######3
+
+- name: install and start git 
+  host: localhost
+
+  task:
+  - name: install git 
+    yum:
+      name: git
+      state: present
+
+  - name: start
+    service:
+      name : git 
+      state: started
+       

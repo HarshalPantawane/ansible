@@ -1,0 +1,33 @@
+- name: copy file to remote
+  host: localhost
+
+  task:
+  - name: copy file to remote
+    copy: 
+      src: /root/myfile.txt     # source of file
+      dest: /tmp                # destination of file
+      gropu: dev
+      mode: 0744                 # file permission
+
+---
+- name: copy to remote
+  host: localhost
+
+  task:
+  - name: copy
+    copy:
+      src: /home/harshl/data.txt
+      dest: /tmp/
+      
+--- 
+# taking back up of file
+
+- name: backup file
+  host: localhost
+
+  task:
+  - name: backup
+    src: /root/myfile.txt
+    dest: /tmp
+    backup: true                 ## in that condition new file will create and old will become backup
+

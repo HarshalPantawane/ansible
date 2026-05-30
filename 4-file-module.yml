@@ -1,0 +1,9 @@
+#######  create file
+
+- name: create file
+  host: localhost
+
+  task:
+  - name: create file
+    file:                # module use as per condition like for create file = file, for copy = copy
+      name

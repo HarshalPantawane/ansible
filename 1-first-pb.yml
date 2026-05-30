@@ -1,0 +1,24 @@
+- name: first pb              # name of playbook
+  host: localhost             # where you want to perform
+
+  task:
+  - name: test connecting     # task name
+    ping:                     # module
+
+
+# there are many module are present ( module is nothing but package manager)
+
+  # ping
+  # yum 
+  # dpt
+  # dnf
+
+
+####  run command
+
+# ansible-playbook file-name
+
+### for run another folder file
+
+# ansible-playbook /foldername/file
+

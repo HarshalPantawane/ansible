@@ -1,0 +1,40 @@
+---------------------------------
+#### installation of ansible on main server
+
+sude dnf install ansible
+
+# if not work do this
+
+sudo dnf install epel-release
+
+sudo dnf install ansible
+
+ansible --version
+
+# to check it is working
+
+ansible localhost -m ping
+---------------------------------------------
+# ansible config check path
+
+/etc/ansible/ansible.cfg
+
+# and for host
+
+/etc/ansible/host
+---------------------------------------------
+### palybook cmd  [check what is use] 
+
+less host
+
+or
+
+less file/foldername
+ 
+###########################################################
+
+# ansible inventory 
+ansible-inventory --list           ## localhost or webserver(domain name) is group pf ips 
+
+cmd:
+  ifconfige                 # check info                                       
