@@ -1,5 +1,5 @@
 ######   nginx installing and start ######
-
+---
 - name: install and start svc      # name of playbook
   host: local module               # where you want to perform
 

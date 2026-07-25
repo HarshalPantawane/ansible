@@ -1,0 +1,25 @@
+# Write a playbook for collecting Hostname and IP address of 50 Luinux servers
+---
+- name: Collect Hostname and IPs of Servers       # give a descriptive title to the playbook.
+  host: Linux_servers                             # is an inventory group
+  gather_facts: true                              # This tell ansible to collect system information before executing tasks.
+  become: false                                   # stand for sudo permission, false means dont use sudo and tru means use sudo as root
+
+  tasks:
+    - name: Save hostname and IPs address to report   # task name
+      lineinfile:                                     # This is an ansible module
+        path: ./server_report.txt                     # Specifies the destination file.
+        create: yes                                   # if the file doesn't exit, create it automatically
+        line: "{{ inventory_hostname }},{{ ansible_hostname }},{{ ansible_default_ipv4.address }}"
+    #        server name from inventory, actual hostname of VM, returns the primarily IP address. 
+      delegate_to: localhost                     # imp line, Normally, tasks execute on the remote server.
+      # Run this specific task on the control node instead of the remote server.
+      # Without it, every remote server would create its own server_report.txt.
+
+    - name:  Display collected information
+      debug:                   # debug module is used to display output. It's commonly used for: Printing variables, Troubleshooting, Verifying playbook behavior
+        msg: "Hostname: {{ ansible_hostname }}, IP: {{ ansible_default_ipv4.address }}"   
+        # Prints the hostname and IP address during execution.
+
+# ansible-playbook -i inventory.ini hostname_ip.yml
+

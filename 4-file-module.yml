@@ -1,9 +1,45 @@
 #######  create file
-
+---
 - name: create file
   host: localhost
 
   task:
   - name: create file
     file:                # module use as per condition like for create file = file, for copy = copy
-      name
+      path: /root/newfile.txt
+      state: Touch
+      mode: 0777
+
+---
+## create file and copy in location
+- name: cretae and copy
+  host: localhost
+
+  task:
+  - name: create file
+    file: 
+      name: file two
+      state: touch 
+      mode: 0744
+  - name: copy file
+    copy:
+      src: /home/
+      dest: /tmp/
+
+---
+## create file specific location and copy to another location
+- name: create file in perticular location and copy 
+  host: localhost
+
+  task:
+  - name: create file in root
+    copy:
+      src: /root/test.txt
+      mode: 0744
+
+  - name: copy file
+    copy:
+      src: /root/test.txt
+      dest: /temp/
+      mode: 0744
+  

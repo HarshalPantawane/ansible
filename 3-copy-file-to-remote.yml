@@ -1,3 +1,4 @@
+---
 - name: copy file to remote
   host: localhost
 
@@ -28,6 +29,6 @@
   task:
   - name: backup
     src: /root/myfile.txt
-    dest: /tmp
+    dest: /tmp/
     backup: true                 ## in that condition new file will create and old will become backup
 

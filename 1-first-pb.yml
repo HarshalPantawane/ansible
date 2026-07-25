@@ -1,3 +1,4 @@
+---
 - name: first pb              # name of playbook
   host: localhost             # where you want to perform
 

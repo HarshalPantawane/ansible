@@ -1,0 +1,40 @@
+###  
+
+ansible
+
+ansible is an it automation tool in k8s
+
+maintain by redhat
+build by google
+
+it is an agentless tool
+
+ansible can be used to automate configuration management tasks such as 
+provisioning, appication deployment and infra management.
+
+---
+there are three main component in ansible
+
+1. Inventory.yaml
+    where we store remote servers details
+    like:
+    Ex.
+    [webserver]
+    192.284.1.100
+    192.264.2.101
+
+2. Playbook
+    to install web servers on remote servers
+    
+    Ex.
+    ---
+    - name: install apache
+      host: localhost
+
+      task:
+      - name: install apache
+        apt:
+          name: apache
+          state: present 
+
+          
